@@ -1,6 +1,28 @@
 Unicorn Engine
 ==============
 
+## freeqaz fork
+
+This is a fork of [unicorn-engine/unicorn](https://github.com/unicorn-engine/unicorn),
+maintained by [freeqaz](https://github.com/freeqaz) in support of the
+[milohax](https://github.com/milohax) decomp-synth work (byte-exact
+decompilation matching for Rock Band 3 / Dance Central 3, which target
+PowerPC). The canonical push target for this fork's `master` is
+[freeqaz/unicorn](https://github.com/freeqaz/unicorn); upstream is tracked
+read-only via the `upstream` remote for pulling in updates.
+
+Changes since upstream, grouped thematically:
+
+- **PPC64 support**: enabled `UC_MODE_PPC64` (previously stubbed out as
+  unsupported), switched the default PPC64 CPU model from POWER10 to 970
+  v2.2, and added PPC64 unit tests (64-bit registers, FP, syscalls,
+  loads/stores, SPRs) plus a PPC64 sample and Python/Rust binding tests.
+- **Test cleanup**: aligned the PPC64 test style with the existing PPC32
+  conventions.
+- **CI fix**: bumped the pinned LizardByte `setup_python` action to
+  unblock macOS-14 arm64 and Windows AMD64 wheel-build jobs that started
+  failing after runner image updates removed the old Python versions.
+
 [![pypi downloads](https://pepy.tech/badge/unicorn)](https://pepy.tech/project/unicorn)
 [![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/unicorn.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:unicorn)
 
